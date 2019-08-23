@@ -23,7 +23,7 @@ toastr.options = ({
  “debug”: false,
  “positionClass”: “toast-bottom-right”,
  “onclick”: null,
- “showDuration”: “300”,
+ “showDuration”: “150”,
  “hideDuration”: “1500”,
  “timeOut”: “5000”,
  “extendedTimeOut”: “1000”,
