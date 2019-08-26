@@ -21,6 +21,8 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'toastr-rails'
+
+gem "paperclip", "~> 6.0.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
