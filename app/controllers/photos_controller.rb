@@ -16,6 +16,8 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @room = @photo.room
     @photo.destroy
+
+    # Get list of remaining photos
     @photos = Photo.where(room_id: @room.id)
 
     respond_to :js
