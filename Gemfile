@@ -24,6 +24,7 @@ gem 'toastr-rails'
 
 gem "paperclip", "~> 6.0.0"
 gem 'geocoder'
+gem 'jquery-ui-rails'
 
 #gem 'aws-sdk-s3'
 
