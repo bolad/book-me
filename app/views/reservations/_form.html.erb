@@ -60,7 +60,7 @@
       dateTyp: 'json',
       success: function(data) {
         $.each(data, function(arrID, arrValue) {
-          for(var d = new Date(arrValue.start_date); d <= new Date(arrValue.end_date); d.setDate(d.getDate() + 1 )) {
+          for(let d = new Date(arrValue.start_date); d <= new Date(arrValue.end_date); d.setDate(d.getDate() + 1 )) {
             unavailableDates.push($.datepicker.formatDate('d-m-yy', d));
           }
         });
@@ -74,11 +74,11 @@
             $('#reservation_end_date').datepicker("option", "minDate", selected);
             $('#reservation_end_date').attr("disabled", false);
 
-            var start_date = $('#reservation_start_date').datepicker('getDate');
-            var end_date = $('#reservation_end_date').datepicker('getDate');
-            var nights = (end_date - start_date)/1000/60/60/24 + 1;
+            let start_date = $('#reservation_start_date').datepicker('getDate');
+            let end_date = $('#reservation_end_date').datepicker('getDate');
+            let nights = (end_date - start_date)/1000/60/60/24 + 1;
 
-            var input = {
+            let input = {
               'start_date': start_date,
               'end_date': end_date
             }
@@ -96,7 +96,7 @@
                     $('#preview').show();
                     $('#btn_book').attr('disabled', false);
 
-                    var total = price * <%= @room.price %>
+                    let total = price * <%= @room.price %>
                     $('#reservation_nights').text(nights);
                     $('#reservation_total').text(total);
 
@@ -114,11 +114,11 @@
           onSelect: function(selected) {
             $('#reservation_start_date').datepicker("option", "maxDate", selected);
 
-            var start_date = $('#reservation_start_date').datepicker('getDate');
-            var end_date = $('#reservation_end_date').datepicker('getDate');
-            var nights = (end_date - start_date)/1000/60/60/24 + 1;
+            let start_date = $('#reservation_start_date').datepicker('getDate');
+            let end_date = $('#reservation_end_date').datepicker('getDate');
+            let nights = (end_date - start_date)/1000/60/60/24 + 1;
 
-            var input = {
+            let input = {
               'start_date': start_date,
               'end_date': end_date
             }
