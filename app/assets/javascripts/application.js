@@ -11,24 +11,26 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+//= require jquery-ui/effect.all
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require jquery-ui/widgets/datepicker
 //= require toastr
 //= require activestorage
-//= require_tree 
+//= require_tree
 
-// toastr.options = ({
-//  “closeButton”: true,
-//  “debug”: false,
-//  “positionClass”: “toast-bottom-right”,
-//  “onclick”: null,
-//  “showDuration”: “150”,
-//  “hideDuration”: “1500”,
-//  “timeOut”: “5000”,
-//  “extendedTimeOut”: “1000”,
-//  “showEasing”: “swing”,
-//  “hideEasing”: “linear”,
-//  “showMethod”: “fadeIn”,
-//  “hideMethod”: “fadeOut”
-//  });
+toastr.options = ({
+ “closeButton”: true,
+ “debug”: false,
+ “positionClass”: “toast-bottom-right”,
+ “onclick”: null,
+ “showDuration”: “150”,
+ “hideDuration”: “1500”,
+ “timeOut”: “5000”,
+ “extendedTimeOut”: “1000”,
+ “showEasing”: “swing”,
+ “hideEasing”: “linear”,
+ “showMethod”: “fadeIn”,
+ “hideMethod”: “fadeOut”
+ });

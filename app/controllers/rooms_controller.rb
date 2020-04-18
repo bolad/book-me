@@ -61,7 +61,35 @@ class RoomsController < ApplicationController
     end
   end
 
+  # --Reservations --
+  # get all start and end dates of all room reservations and pass to datepicker as json
+  def preload
+    today = Date.today
+    reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+    render json: reservations
+  end
+
+  # get reservation start_date and end_date and pass into the is_conflict to check
+  # if those reservation dates are available
+  def preview
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+
+    output = {
+      conflict: is_conflict(start_date, end_date, @room)
+    }
+
+    render json: output
+  end
+
   private
+
+  # check if room is already booked
+  def is_conflict(start_date, end_date, room)
+    check = rooms.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+    check.size > 0 ? true : false
+  end
 
   def set_room
     @room = Room.find(params[:id])
