@@ -120,7 +120,7 @@
       <div class="col-md-12">
         <h3>
           <%= pluralize(@guest_reviews.count, "Review" ) %>
-          <span id="average-rating"></span>
+          <span id="average_rating"></span>
         </h3>
         <div class="container">
           <div>
@@ -183,5 +183,12 @@
       <!-- Reservation form -->
       <%= render 'reservations/form' %>
     </div>
-
 </div>
+
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @room.average_rating %>
+  });
+</script>
