@@ -1,17 +1,17 @@
 class GuestReviewsController < ApplicationController
+
   def create
     # Step 1: Check if the reservation exists (host_id, room_id, host_id)
 
     # Step 2: Check if the host already reviewed the guest in this reservation
     @reservation = Reservation.where(
       id: guest_review_params[:reservation_id],
-      room_id: guest_review_params[:room_id],
-      user_id: guest_review_params[:guest_id]
+      room_id: guest_review_params[:room_id]
     ).first
 
     if !@reservation.nil? && @reservation.room.user.id == guest_review_params[:host_id].to_i
       @has_reviewed = GuestReview.where(
-        reservation_id: guest_review_params[:reservation_id],
+        reservation_id: @reservation.id,
         host_id: guest_review_params[:host_id]
       ).first
 
@@ -20,13 +20,11 @@ class GuestReviewsController < ApplicationController
         @guest_review = current_user.guest_reviews.create(guest_review_params)
         flash[:success] = "Your review has been submitted"
       else
-        flash[:success] = "You have already reviewed this reservation"
+        flash[:alert] = "You have already reviewed this reservation"
       end
     else
       flash[:alert] = "This reservation was not found"
     end
-    }
-
     # redirect back to current page
     redirect_back(fallback_location: request.referer)
   end

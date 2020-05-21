@@ -10,9 +10,9 @@ class HostReviewsController < ApplicationController
       user_id: host_review_params[:guest_id]
     ).first
 
-    if !reservation.nil?
+    if !@reservation.nil?
       @has_reviewed = HostReview.where(
-        reservation_id: host_review_params[:reservation_id],
+        reservation_id: @reservation.id,
         guest_id: host_review_params[:guest_id]
       ).first
 
@@ -21,13 +21,11 @@ class HostReviewsController < ApplicationController
         @host_review = current_user.host_reviews.create(host_review_params)
         flash[:success] = "Your review has been submitted"
       else
-        flash[:success] = "You have already reviewed this reservation"
+        flash[:alert] = "You have already reviewed this reservation"
       end
     else
       flash[:alert] = "This reservation was not found"
     end
-    }
-
     # redirect back to current page
     redirect_back(fallback_location: request.referer)
   end
