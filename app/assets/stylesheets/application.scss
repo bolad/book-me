@@ -20,6 +20,10 @@ a {
   color: #00A699;
 }
 
+.text-red, .icon-red {
+  color: #FF5A5F;
+}
+
 //NAVBARS
 .navbar-default{
   background-color: #FFFFFF;
@@ -42,11 +46,11 @@ a {
   color: #fff;
   border-radius: 5px;
   font-weight: bold;
-  padding: 9px, 27px;
+  padding: 9px 27px;
 }
 
 .btn-small {
-  padding: 5px, 15px;
+  padding: 5px 15px;
   margin-top: 15px;
 }
 
@@ -217,7 +221,7 @@ a {
 .amenities .text-line-through {
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.45);
-  font-size: 14;
+  font-size: 14px;
 }
 
 //RESERVATIONS
@@ -245,4 +249,24 @@ a {
   color: #d43242;
   font-size: 14px;
   padding-top: 10px;
+}
+
+//SEARCH
+#main {
+  height: 100%;
+  overflow: hidden;
+}
+
+#left {
+  padding: 10px 400px 10px 20px;
+  overflow: scroll;
+  height: 100%
+}
+
+#right {
+  position:fixed;
+  top: 0;
+  right: 0;
+  width: 450px;
+  height: 100%;
 }

@@ -26,6 +26,8 @@ gem "paperclip", "~> 6.0.0"
 gem 'geocoder'
 gem 'jquery-ui-rails'
 
+gem 'ransack', '~> 1.7'
+
 #gem 'aws-sdk-s3'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
