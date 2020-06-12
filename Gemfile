@@ -26,7 +26,8 @@ gem "paperclip", "~> 6.0.0"
 gem 'geocoder'
 gem 'jquery-ui-rails'
 
-gem 'ransack'
+#gem 'ransack', '~>1.7'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 #gem 'aws-sdk-s3'
 

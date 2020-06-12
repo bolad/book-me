@@ -184,7 +184,7 @@ a {
 //PHOTO UPLOADS
 .btn-file {
   position: relative;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .btn-file input[type=file] {
@@ -203,11 +203,11 @@ a {
   display: block;
 }
 
-.padding-heading.preview {
+.panel-heading.preview {
   padding: 0;
 }
 
-.padding-heading.preview img {
+.panel-heading.preview img {
   width: 100%;
 }
 
