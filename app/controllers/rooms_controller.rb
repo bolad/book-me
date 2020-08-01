@@ -54,12 +54,11 @@ class RoomsController < ApplicationController
     #if room is active, merge the new room params with the active param with a value of true
     new_params = room_params.merge(active: true) if is_ready_room
     if @room.update(new_params)
-      flash[:notice] = "saved"
+      flash[:notice] = "Saved"
     else
       flash[:alert] = "Something went wrong"
-      redirect_back(fall_back_location: request.referer)
-
     end
+      redirect_back(fallback_location: request.referer)
   end
 
   # --Reservations --

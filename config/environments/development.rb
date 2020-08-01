@@ -63,32 +63,36 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.mailgun.org',
-    port: 587,
-    domain: 'sandbox9d0bc3c405474a90935505b06ccdb9a2.mailgun.org',
-    user_name: 'postmaster@sandbox9d0bc3c405474a90935505b06ccdb9a2.mailgun.org',
-    password: '422ad2ea4a560157168744915d3d0a22-2ae2c6f3-5c036150'
+  # MailGun Settings
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.mailgun.org',
+  #   port: 587,
+  #   domain: 'sandbox9d0bc3c405474a90935505b06ccdb9a2.mailgun.org',
+  #   authentication: 'plain',
+  #   user_name: 'postmaster@sandbox9d0bc3c405474a90935505b06ccdb9a2.mailgun.org',
+  #   password: '422ad2ea4a560157168744915d3d0a22-2ae2c6f3-5c036150'
+  # }
 
-    # address: 'smtp.gmail.com',
-    # port: 587,
-    # enable_starttls_auto: true,
-    # authentication: 'plain',
-    # user_name: 'stanley.akyea@gmail.com',
-    # password: 'stanleybolad'
+  # Gmail Settings
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    enable_starttls_auto: true,
+    authentication: 'plain',
+    user_name: 'stanley.akyea@gmail.com',
+    password: 'stanleybolad'
   }
 
-  # config.paperclip_defaults = {
-  #   # storage: :s3,
-  #   # path: ':class/:attachment/:id/:style/:filename',
-  #   # s3_host_name: 's3-eu-west-3.amazonaws.com',
-  #   # s3_credentials: {
-  #   #   bucket: 'airbolad',
-  #   #   access_key_id: 'AKIAIYEI4YGVWN4BM7WA',
-  #   #   secret_access_key: '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',
-  #   #   s3_region: 'eu-west-3'
-  #   # }
-  #
-  # }
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-ap-southeast-2.amazonaws.com',
+    s3_credentials: {
+      bucket: ENV.fetch('S3_BUCKET_NAME'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+      s3_region: ENV.fetch('AWS_REGION')
+    }
+  }
 
 end

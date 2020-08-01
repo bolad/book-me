@@ -29,7 +29,9 @@ gem 'jquery-ui-rails'
 #gem 'ransack', '~>1.7'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
-#gem 'aws-sdk-s3'
+gem 'aws-sdk-s3'
+
+gem 'dotenv-rails'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
